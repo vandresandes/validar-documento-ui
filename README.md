@@ -1,2 +1,2 @@
 # validar-documento-ui
-Projeto single- page para validação de documento
+Projeto single-page para validação de documento
