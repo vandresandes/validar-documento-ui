@@ -1,0 +1,32 @@
+{
+  "/api": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {"^/api": ""}
+   },
+  "/dctm-rest/*": {
+    "target": "http://10.52.6.21:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/ACS/*": {
+    "target": "https://ecm1.pge.ba.gov.br",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/recaptcha/api/*": {
+    "target": "https://www.google.com",
+    "secure": true,
+    "logLevel": "debug",
+    "changeOrigin": true
+  },
+  "/content-media/*": {
+    "target": "http://10.52.6.21:8080",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

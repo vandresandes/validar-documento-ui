@@ -1,0 +1,15 @@
+<form [formGroup]="aFormGroup">
+  <ngx-invisible-recaptcha #captchaElemInterno
+    [siteKey]="siteKey"
+    (reset)="handleReset()"
+    (ready)="handleReady()"
+    (load)="handleLoad()"
+    (success)="handleSuccess($event)"
+    [useGlobalDomain]="false"
+    [type]="type"
+    [badge]="badge"
+    [ngModel]="recaptcha"
+    [ngModelOptions]="{ standalone: true }">
+  </ngx-invisible-recaptcha>
+ </form>
+

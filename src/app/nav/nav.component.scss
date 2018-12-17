@@ -1,0 +1,17 @@
+.logo {
+  // -webkit-filter: drop-shadow(0px 0px 50px #fff );
+  // filter: drop-shadow(0px 0px 50px #fff);
+  max-width: 40%;
+  min-height: 100%;
+  max-height: 100%;
+}
+
+.nav-logo {
+  background-color: rgb(0, 83, 159);
+}
+
+@media (min-width: 992px) {
+  .navbar {
+      height:50px;
+  }
+}
