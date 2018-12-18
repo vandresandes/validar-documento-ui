@@ -1,22 +1,24 @@
 <div class="container">
 	<div class="card">
 		<div class="card-body">
-			<form #form>
+			<form #form autocomplete="off">
 				<div class="col-md-12">
 					<div class="form-group row">
-						<div class="col-md-2 mx-auto">
-							<input id="codigoValidacao1" type="text" class="form-control" (input)="tabCodigoValidacao($event)" tabindex="1">
+						<div class="col-lg-2 col-sm-3 offset-lg-1">
+							<input id="codigoValidacao1" type="text" class="form-control text-center" (input)="tabCodigoValidacao($event)" tabindex="1">
 						</div>
-						<div class="col-md-2 mx-auto">
-							<input id="codigoValidacao2" type="text" class="form-control" (input)="tabCodigoValidacao($event)" tabindex="2">
+						<div class="col-lg-2 col-sm-3">
+							<input id="codigoValidacao2" type="text" class="form-control text-center" (input)="tabCodigoValidacao($event)" tabindex="2">
 						</div>
-						<div class="col-md-2 mx-auto">
-							<input id="codigoValidacao3" type="text" class="form-control" (input)="tabCodigoValidacao($event)" tabindex="3">
+						<div class="col-lg-2 col-sm-3">
+							<input id="codigoValidacao3" type="text" class="form-control text-center" (input)="tabCodigoValidacao($event)" tabindex="3">
 						</div>
-						<div class="col-md-2 mx-auto">
-							<input id="codigoValidacao4" type="text" class="form-control" (input)="tabCodigoValidacao($event)" tabindex="4" >
-						</div>
-						<button type="button" class="btn btn-danger" (click)="limpar(form)" tooltip="{{lbLimpar}}">{{lbLimpar}}</button>
+						<div class="col-lg-2 col-sm-3">
+							<input id="codigoValidacao4" type="text" class="form-control text-center" (input)="tabCodigoValidacao($event)" tabindex="4" >
+            </div>
+            <div class="col-lg-2 text-right">
+              <button type="button" class="btn btn-danger" (click)="limpar(form)" tooltip="{{lbLimpar}}">{{lbLimpar}}</button>
+            </div>
 					</div>
 					<div [class.esconder]="hidePdf">
 						<div class="" role="alert" id="containerPdf">
