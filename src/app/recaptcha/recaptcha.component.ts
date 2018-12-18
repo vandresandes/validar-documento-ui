@@ -42,7 +42,6 @@ export class RecaptchaComponent implements OnInit {
    * Opcional. O nome da sua função de retorno de chamada a ser executada assim que todas as dependências forem carregadas.
    */
   handleLoad() {
-    console.log("handleLoad...");
   }
 
   handleReload() {

@@ -10,6 +10,9 @@ import { NavComponent } from './nav/nav.component';
 import { CodigoValidacaoComponent } from './codigo-validacao/codigo-validacao.component';
 import { RecaptchaComponent } from './recaptcha/recaptcha.component';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -25,6 +28,12 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-center-center',
+      preventDuplicates: true,
+    }),
     TooltipModule.forRoot()
   ],
   providers: [

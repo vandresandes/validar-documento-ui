@@ -2,6 +2,7 @@ import { CodigoValidacaoService } from './../service/codigo-validacao.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RecaptchaComponent } from '../recaptcha/recaptcha.component';
 import { RelationsDocumentum } from '../enums/RelationsDocumentum';
+import { ToastrService } from 'ngx-toastr';
 import * as $ from "jquery";
 
 @Component({
@@ -16,23 +17,21 @@ export class CodigoValidacaoComponent implements OnInit {
 	protected idCurrent: string;
 	protected pdf: string = "";
 	protected hidePdf: boolean = true;
-	protected hideMsgNaoEncontrad: boolean = true;
 	protected urlDql: string = "/dctm-rest/repositories/PGE_DEV1?dql=";
-	protected msgNaoEncontrado: string = "Não encontrado!";
 	protected codigoValidacao1: string = null;
 	protected codigoValidacao2: string = null;
 	protected codigoValidacao3: string = null;
 	protected codigoValidacao4: string = null;
 	protected lbLimpar: string = "Limpar";
-	protected codigoValidacao: string;
+  protected codigoValidacao: string;
 
-	@ViewChild('captchaElem') captchaElem: RecaptchaComponent;
+  @ViewChild('captchaElem') captchaElem: RecaptchaComponent;
 
-	constructor(private codigoValidacaoService: CodigoValidacaoService) {}
+  constructor(private codigoValidacaoService: CodigoValidacaoService, private toastr: ToastrService) {}
 
 	ngOnInit() {
-		$('[tabindex=' + 1 + ']').focus();
-	}
+    $('[tabindex=' + 1 + ']').focus();
+  }
 
 	tabCodigoValidacao(event: KeyboardEvent) {
 		this.resetVariaveis();
@@ -51,13 +50,11 @@ export class CodigoValidacaoComponent implements OnInit {
 
 		this.codigoValidacao = this.concatenarCodigoValidacao();
 		if (this.codigoValidacao.length == 16) {
-			console.log("codigoValidacao.length igual a 16");
 			this.captchaElem.execute();
 		}
 	}
 
 	respostaRecaptcha(respostaRecaptcha: boolean = false) {
-		console.log('Resposta do reCAPTCHA >>>> ', respostaRecaptcha);
 		if (respostaRecaptcha) {
 			this.pesquisarPorCodigoValidacao();
 		}
@@ -85,8 +82,7 @@ export class CodigoValidacaoComponent implements OnInit {
 
 	pesquisarPdf(idCurrent: string) {
 		if (idCurrent === null) {
-			console.log("Não encontrado!");
-			this.hideMsgNaoEncontrad = false;
+      this.toastr.info('Documento não encontrado!');
 			return;
 		}
 		let links : Array<string>;
@@ -151,7 +147,6 @@ export class CodigoValidacaoComponent implements OnInit {
 		this.pdf = "";
 		this.hidePdf = true;
 		this.idCurrent = null;
-		this.hideMsgNaoEncontrad = true;
 	}
 
 	limpar(form) {
@@ -161,6 +156,6 @@ export class CodigoValidacaoComponent implements OnInit {
 
 	getLengthCodigoValidacao(): number {
 		return this.codigoValidacao != null ? this.codigoValidacao.length : 0;
-	}
+  }
 
 }
