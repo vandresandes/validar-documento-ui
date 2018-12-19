@@ -92,7 +92,7 @@ export class CodigoValidacaoComponent implements OnInit {
 			data => {
 				this.getData =  data,
 				links = this.getData['links'],
-				this.pdf = this.getLinkContentMedia(links),
+        this.pdf = this.getLinkContentMedia(links),
 				this.hidePdf = false
 			},
 			error => alert(error), () => console.log("acesso a webapi get ok... pesquisarPorCodigoValidacao")
@@ -149,9 +149,10 @@ export class CodigoValidacaoComponent implements OnInit {
 		this.idCurrent = null;
 	}
 
-	limpar(form) {
+	limpar(form: any) {
 		form.reset();
-		this.resetVariaveis();
+    this.resetVariaveis();
+    $('[tabindex=' + 1 + ']').focus();
 	}
 
 	getLengthCodigoValidacao(): number {
