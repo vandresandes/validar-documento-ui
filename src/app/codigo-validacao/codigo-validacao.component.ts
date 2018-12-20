@@ -159,4 +159,8 @@ export class CodigoValidacaoComponent implements OnInit {
 		return this.codigoValidacao != null ? this.codigoValidacao.length : 0;
   }
 
+  download() {
+    window.open(this.pdf)
+  }
+
 }
